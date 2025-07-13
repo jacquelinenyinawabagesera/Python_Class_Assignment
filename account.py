@@ -97,15 +97,25 @@ class Account:
         self.name = new_name
         return f"Account owner changed to {self.name}."
 
-    def account_statement(self):
-        statement = f"Account statement for {self.name}: Deposits: "
-        for i, amount in enumerate(self.deposits, 1):
-            statement += f"{i}. +{amount} "
-        statement += "Withdrawals: "
-        for i, amount in enumerate(self.withdrawals, 1):
-            statement += f"{i}. {amount} "
-        statement += f"Current balance: {self.balance} Outstanding loan: {self.loan}"
-        return statement
+def get_account_statement(self):
+        total_deposits = 0
+        total_withdrawals = 0
+        total_loans = 0
+        total_money_received = 0
+        print(f"Hello {self.name}, here is your account statement.")
+        for amount in self.deposit:
+             total_deposits += amount
+             print(f"Deposited: {amount} KES")
+        for amount in self.withdrawal:
+            total_withdrawals += amount
+            print (f"Withdrew: {amount} KES")
+        for loan in self.loans:
+            total_loans += loan
+            print(f"Borrowed: {loan} KES")
+        for amount in self.amount_received:
+            total_money_received += amount
+            print(f"Received: {amount} KES")
+        print(f"Current balance: {self.get_balance()} KES\n")
 
     def calculate_interest(self):
         if self.closed:
@@ -172,3 +182,5 @@ print(account1.set_minimum_balance(200))
 print(account1.withdraw(500))
 print(account1.close_account())
 print(account1.deposit(50))
+
+
